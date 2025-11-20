@@ -17,6 +17,19 @@ const About = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleDownloadCV = () => {
+    // Direct download approach - works best for PDFs
+    const link = document.createElement("a");
+    link.href = "/Dejen_CV.pdf";
+    link.download = "Dejen_CV.pdf";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => {
+      document.body.removeChild(link);
+    }, 100);
+  };
+
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
@@ -290,6 +303,7 @@ const About = () => {
             </div>
 
             <motion.button
+              onClick={handleDownloadCV}
               className="about-cta"
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
