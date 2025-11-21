@@ -10,37 +10,66 @@ import gitimg from "../../assets/img/Skills/newgit.png";
 import htmlimg from "../../assets/img/Skills/html.png";
 import myseqlimg from "../../assets/img/Skills/mysql.png";
 import reactimg from "../../assets/img/Skills/react.png";
-import nextjsimg from "../../assets/img/Skills/nextjs.png";
-import prismaimg from "../../assets/img/Skills/prisma.png";
-import flutterimg from "../../assets/img/Skills/flutter.png";
-import reactnativeimg from "../../assets/img/Skills/reactnative.png";
-import supabaseimg from "../../assets/img/Skills/supabase.png";
-import postgresqlimg from "../../assets/img/Skills/postgresql.png";
-import mongodbimg from "../../assets/img/Skills/mongodb.png";
-import dockerimg from "../../assets/img/Skills/docker.png";
+import awsimg from "../../assets/img/Skills/aws.svg";
 
 const skills = [
   // Web Development
   { title: "React", img: reactimg },
-  { title: "Next.js", img: nextjsimg },
+  {
+    title: "Next.js",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
   { title: "Node.js", img: nodeimg },
-  { title: "Prisma", img: prismaimg },
+  {
+    title: "Prisma",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  },
+  {
+    title: "Tailwind CSS",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  },
   // Mobile Development
-  { title: "Flutter", img: flutterimg },
-  { title: "React Native", img: reactnativeimg },
-  { title: "Supabase", img: supabaseimg },
+  {
+    title: "Flutter",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+  },
+  {
+    title: "React Native",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    title: "Supabase",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  },
   { title: "Firebase", img: firebaseimg },
   // Database
-  { title: "PostgreSQL", img: postgresqlimg },
+  {
+    title: "PostgreSQL",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  },
   { title: "MySQL", img: myseqlimg },
-  { title: "MongoDB", img: mongodbimg },
+  {
+    title: "MongoDB",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
   // Cloud & DevOps
-  { title: "AWS", img: null }, // AWS icon will use placeholder
-  { title: "Docker", img: dockerimg },
+  { title: "AWS", img: awsimg },
+  {
+    title: "Docker",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  },
+  {
+    title: "Kubernetes",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+  },
   // Additional existing skills
   { title: "Express", img: expressimg },
   { title: "Bootstrap", img: bootstrapimg },
   { title: "Git", img: gitimg },
+  {
+    title: "GitHub",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  },
   { title: "HTML", img: htmlimg },
   { title: "CSS", img: cssimg },
 ];
@@ -80,30 +109,43 @@ const Skills = () => {
 
       <div className={styles.skillsContainerWrapper}>
         <div className={styles.skillsContainer}>
-          <div className={styles.skillsTrack}>
-            {[...skills, ...skills].map((skill, index) => (
-              <motion.div
-                className={styles.skillCard}
-                key={`${skill.title}-${index}`}
-                whileHover={{
-                  y: -15,
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <div className={styles.skillImage}>
-                  {skill.img ? (
-                    <img src={skill.img} alt={skill.title} loading="lazy" />
-                  ) : (
-                    <div className={styles.skillPlaceholder}>
-                      {skill.title.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <div className={styles.skillName}>{skill.title}</div>
-              </motion.div>
-            ))}
-          </div>
+          {skills.map((skill, index) => (
+            <motion.div
+              className={styles.skillCard}
+              key={`${skill.title}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                opacity: { delay: index * 0.1, duration: 0.5 },
+                y: {
+                  duration: 3 + (index % 3) * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.1,
+                },
+              }}
+              whileHover={{
+                y: -15,
+                scale: 1.05,
+                transition: { duration: 0.3 },
+              }}
+            >
+              <div className={styles.skillImage}>
+                {skill.img ? (
+                  <img src={skill.img} alt={skill.title} loading="lazy" />
+                ) : (
+                  <div className={styles.skillPlaceholder}>
+                    {skill.title.charAt(0)}
+                  </div>
+                )}
+              </div>
+              <div className={styles.skillName}>{skill.title}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
