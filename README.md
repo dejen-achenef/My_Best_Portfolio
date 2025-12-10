@@ -8,6 +8,7 @@ This is my personal portfolio website built with React + Vite.
 - Fast performance with Vite
 - Component-based architecture
 - Optimized assets and images
+- SEO friendly structure
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
