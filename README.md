@@ -2,6 +2,11 @@
 
 This is my personal portfolio website built with React + Vite.
 
+## Features
+
+- Modern and responsive design
+- Fast performance with Vite
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
