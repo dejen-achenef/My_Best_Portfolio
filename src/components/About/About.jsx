@@ -10,6 +10,7 @@ import { motion, useAnimation } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import profileImage from "../../assets/img//portfolio/gechPhoto.jpg";
+import cvPdf from "../../assets/cv/Dejen_Engineer_Cv.pdf";
 import "./About.css";
 
 const About = () => {
@@ -20,8 +21,8 @@ const About = () => {
   const handleDownloadCV = () => {
     // Direct download approach - works best for PDFs
     const link = document.createElement("a");
-    link.href = "/Dejen_CV.pdf";
-    link.download = "Dejen_CV.pdf";
+    link.href = cvPdf;
+    link.download = "Dejen_Engineer_Cv.pdf";
     link.style.display = "none";
     document.body.appendChild(link);
     link.click();
