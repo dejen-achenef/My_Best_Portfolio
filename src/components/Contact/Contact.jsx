@@ -130,6 +130,16 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          className={styles.copyright}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <p>&copy; 2024 Dejen Achenef. All rights reserved.</p>
+        </motion.div>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const Hero = () => {
   });
 
   const items = [
-    "Full Stack Developer",
+    "Software Engineer",
     "Web Architect",
     "Digital Craftsman",
     "Solution Engineer",

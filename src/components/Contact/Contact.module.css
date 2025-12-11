@@ -267,3 +267,18 @@
     font-size: 1.1rem;
   }
 }
+
+/* ====== COPYRIGHT ====== */
+.copyright {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.copyright p {
+  color: var(--cosmic-muted);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
