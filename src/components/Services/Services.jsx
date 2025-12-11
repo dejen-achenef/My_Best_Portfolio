@@ -23,7 +23,7 @@ const Services = () => {
     {
       icon: <FiSmartphone />,
       title: "Mobile Application Development",
-      tech: ["Flutter", "React Native", "Supabase", "Firebase"],
+      tech: ["Flutter", "Supabase", "Firebase"],
       description:
         "Cross-platform mobile applications with modern frameworks and backend services",
     },

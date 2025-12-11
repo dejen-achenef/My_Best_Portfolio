@@ -10,10 +10,9 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import Skills from './components/Skills/Skills';
-import CompetitiveCodingSection from './components/CodingProfile/CodingProfile';
+import Experience from './components/Experience/Experience';
 import Portfolio from './components/Portfolio/Portfolio';
 import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
 
 import './assets/css/main.css';
 
@@ -51,7 +50,7 @@ const App = () => {
           <Skills />
         </ErrorBoundary>
         <ErrorBoundary>
-          <CompetitiveCodingSection />
+          <Experience />
         </ErrorBoundary>
         <ErrorBoundary>
           <Portfolio />
@@ -60,11 +59,7 @@ const App = () => {
         <ErrorBoundary>
           <Contact />
         </ErrorBoundary>
-      </main> 
-
-      <ErrorBoundary>
-        <Footer />
-      </ErrorBoundary>
+      </main>
     </div>
   );
 };
