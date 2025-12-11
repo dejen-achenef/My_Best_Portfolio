@@ -54,19 +54,43 @@ const About = () => {
 
   const animateCounters = () => {
     const counters = document.querySelectorAll(".about-stat-number");
-    const speed = 1.005;
+    const speed = 50;
 
     counters.forEach((counter) => {
-      const target = +counter.getAttribute("data-count");
-      const count = +counter.innerText;
-      const increment = target / speed;
+      const dataCount = counter.getAttribute("data-count");
+      if (!dataCount) return;
+      
+      // Extract numeric value and suffix (e.g., "15+" -> 15 and "+")
+      const match = dataCount.toString().match(/(\d+)(.*)/);
+      if (!match) {
+        counter.innerText = dataCount;
+        return;
+      }
+      
+      const target = parseInt(match[1], 10);
+      const suffix = match[2] || "";
+      
+      if (isNaN(target)) {
+        counter.innerText = dataCount;
+        return;
+      }
+      
+      let count = 0;
+      const increment = Math.max(0.1, target / speed);
 
       const updateCount = () => {
         if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 1);
+          count = Math.min(count + increment, target);
+          const currentCount = Math.ceil(count);
+          counter.innerText = currentCount + suffix;
+          
+          if (count < target) {
+            setTimeout(updateCount, 10);
+          } else {
+            counter.innerText = target + suffix;
+          }
         } else {
-          counter.innerText = target;
+          counter.innerText = target + suffix;
         }
       };
       updateCount();
@@ -228,13 +252,13 @@ const About = () => {
             variants={itemVariants}
           >
             <h3 className="about-content-title">
-              Full Stack <span className="text-accent">Developer</span>
+              Software <span className="text-accent">Engineer</span>
             </h3>
 
             <p className="about-description">
               Crafting digital solutions with precision and innovation. With
-              <span className="highlight"> 1+ years</span> experience delivering
-              <span className="highlight"> 10+ projects</span> across
+              <span className="highlight"> 3+ years</span> experience delivering
+              <span className="highlight"> 15+ projects</span> across
               cutting-edge technologies.
             </p>
 
@@ -277,9 +301,9 @@ const About = () => {
 
             <div className="about-stats-grid">
               {[
-                { value: 15, label: "Projects" },
-                { value: 500, label: "Problem Solved" },
-                { value: 1, label: "Years" },
+                { value: "15+", label: "Projects" },
+                { value: "200+", label: "Problem Solved" },
+                { value: "3+", label: "Experience" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -290,9 +314,8 @@ const About = () => {
                   transition={{ delay: 0.1 }}
                   whileHover={{ y: -2 }}
                 >
-                  {console.log(stat.value)}
                   <div className="about-stat-number" data-count={stat.value}>
-                    2
+                    {stat.value}
                   </div>
                   <div className="about-stat-label">{stat.label}</div>
                   <div className="about-stat-bar">
