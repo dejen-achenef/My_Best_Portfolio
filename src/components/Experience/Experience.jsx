@@ -17,18 +17,7 @@ const Experience = () => {
       ],
       techStack: ["React", "Next.js", "Node.js", "TypeScript", "Flutter", "Dart", "Firebase", "PostgreSQL", "MongoDB"],
     },
-    {
-      date: "05/2025 – 12/2025",
-      company: "FutureX Technology",
-      role: "Senior Software Developer",
-      achievements: [
-        "Led the design, development, and delivery of complex software solutions, ensuring scalable, high-performance, and maintainable architectures",
-        "Guided technical decision-making, mentored junior developers, and collaborated with product managers, designers, and cross-functional teams",
-        "Built robust backend systems, optimized APIs and databases, developed modern front-end interfaces, and maintained high code quality through reviews, testing, and best practices",
-        "Drove process improvements, introduced automation and tooling enhancements, and supported continuous integration and deployment workflows",
-      ],
-      techStack: ["React", "Node.js", "TypeScript", "Flutter", "Dart", "Firebase", "PostgreSQL", "AWS", "Docker"],
-    },
+   
     {
       date: "10/2025 – 11/2025",
       company: "Mani",
