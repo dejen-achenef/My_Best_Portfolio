@@ -10,7 +10,6 @@ import { motion, useAnimation } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import profileImage from "../../assets/img//portfolio/gechPhoto.jpg";
-import cvPdf from "../../assets/cv/Dejen_Engineer_Cv.pdf";
 import "./About.css";
 
 const About = () => {
@@ -18,18 +17,14 @@ const About = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleDownloadCV = () => {
-    // Direct download approach - works best for PDFs
-    const link = document.createElement("a");
-    link.href = cvPdf;
-    link.download = "Dejen_Engineer_Cv.pdf";
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    setTimeout(() => {
-      document.body.removeChild(link);
-    }, 100);
-  };
+ const handleDownloadCV = () => {
+  window.open(
+    "https://flowcv.com/resume/2uop2wrj5f2h",
+    "_blank",
+    "noopener,noreferrer"
+  );
+};
+
 
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
